@@ -16,7 +16,12 @@
         width: 100px;
         border-radius: 5px;
         background-color: rgb(162, 240, 149);
+        cursor: pointer;
         border: 1px solid black;
+    
+    }
+    :hover{
+        background-color: #d6fed0;
 
     }
 
