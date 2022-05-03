@@ -1,12 +1,20 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import Countries from './Components/Countries';
+import ReactPaginate from 'react-paginate';
+import style from './style.scss'
 
 function App() {
 
   const [countries, setData]=useState([])
   const [data1, setData1]=useState([])
   const [sort, setSort]=useState(0)
+  const [pageNumber, setPageNumber]= useState(0)
+  const [userPerPage, setUserPerPage]= useState(7)
+  const pageVisited = pageNumber * userPerPage
+  // const displayUsers = countries.slice(pageVisited, pageVisited + userPerPage)
+
+
   // const [smaller, setSmaller]=useState(0)
 
 
@@ -16,7 +24,9 @@ function App() {
      .then((response) => response.json())
      .then((data) => {
        setData(data); 
+       console.log(data);
        setData1(data)
+       console.log(countries);
       })
      .catch((err) => {
        console.log(err.message);
@@ -46,6 +56,8 @@ function App() {
       arr =  arr.filter(data => data.area < 65300)
       setData([...arr])
     }
+
+
     const ocn =()=>{
 
       let arr = [...countries];
@@ -58,19 +70,44 @@ function App() {
       // console.log(data1);
 
     }
+    // const displayUsers = countries.slice(pageVisited, pageVisited + userPerPage)
+    const pageCount =Math.ceil(countries.length/userPerPage)
+    const changePage = ({selected})=>{
+      setPageNumber(selected);
+    }
 
 
 
 
-
-
-  return (
+    return (
     <div className="App">
-     <button onClick={  sortas1}>sort</button>
-     <button onClick={sml}>smaller</button>
-     <button onClick={ocn}>Oceania</button>
-     <button onClick={back}>back</button>
-     <Countries data={countries} ></Countries>
+    <div className="top">
+
+      <h1>Countries REST API</h1>
+    </div>
+    <div className="btns">
+        
+        <button onClick={  sortas1}>sort</button>
+        <button onClick={sml}>smaller</button>
+        
+      {/* {displayUsers} */}
+      <ReactPaginate
+        previousLabel={'<<'}
+        nextLabel={'>>'}
+        pageCount={pageCount}
+        onPageChange={changePage}
+        containerClassName={'paginationBttns'}
+        previousLinkCLassName={'previousBttn'}
+        nextLinkClassName={'nextBttn'}
+        disabledClassName={'paginationDisabled'}
+        activeClassNAme={'paginationActive'}
+        >
+      </ReactPaginate>
+      <button onClick={ocn}>Oceania</button>
+        <button onClick={back}>back</button>
+          </div>
+  
+     <Countries pageVisited={pageVisited} userPerPage={userPerPage} data={countries} ></Countries>
     </div>
   );
 }
