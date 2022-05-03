@@ -87,8 +87,8 @@ function App() {
     </div>
     <div className="btns">
         
-        <button onClick={  sortas1}>sort</button>
-        <button onClick={sml}>smaller</button>
+        <button onClick={  sortas1}>A-Z / Z-A</button>
+        <button onClick={sml}>Smaller than LTU</button>
         
       {/* {displayUsers} */}
       <ReactPaginate
@@ -104,7 +104,7 @@ function App() {
         >
       </ReactPaginate>
       <button onClick={ocn}>Oceania</button>
-        <button onClick={back}>back</button>
+        <button onClick={back}>RESET</button>
           </div>
   
      <Countries pageVisited={pageVisited} userPerPage={userPerPage} data={countries} ></Countries>

@@ -58,6 +58,12 @@ ul{
         margin: 0;
 
         align-self: flex-start;
+        line-height: 30px;
+        span{
+            font-size: 15px;
+            line-height: 20px;
+            vertical-align: top;
+        }
     }
 }
 .paginationBttns {

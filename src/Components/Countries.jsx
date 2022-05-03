@@ -12,12 +12,12 @@ export default function Countries({data, userPerPage,pageVisited}){
                     {e.name} 
                     </h2>
                     <h3>
-                {e.region} 
+                Region: {e.region} 
 
                     </h3>
                     <h3>
 
-                {e.area}
+                Area: {e.area} km<span>2</span>
                     </h3>
                 </div>)
         }
