@@ -6,7 +6,7 @@ import style from './style.scss'
 
 function App() {
 
-  const [countries, setData]=useState([])
+  const [countries, setCountries]=useState([])
   const [data1, setData1]=useState([])
   const [sort, setSort]=useState(0)
   const [pageNumber, setPageNumber]= useState(0)
@@ -23,10 +23,8 @@ function App() {
 
      .then((response) => response.json())
      .then((data) => {
-       setData(data); 
-       console.log(data);
+      setCountries(data); 
        setData1(data)
-       console.log(countries);
       })
      .catch((err) => {
        console.log(err.message);
@@ -40,21 +38,19 @@ function App() {
      if(sort===0){
        arr.sort((a, b)=> b.name.localeCompare(a.name))
         setSort(1)
-        setData([...arr])
+        setCountries([...arr])
      }
      else if(sort===1){
        arr.sort((a, b)=> a.name.localeCompare(b.name))
         setSort(0)
-        setData([...arr])
+        setCountries([...arr])
      }
    }
    
     const sml =()=>{
-
-      let arr = [...countries];
-
+      let arr = [...data1];
       arr =  arr.filter(data => data.area < 65300)
-      setData([...arr])
+      setCountries([...arr])
     }
 
 
@@ -63,10 +59,10 @@ function App() {
       let arr = [...countries];
 
       arr =  arr.filter(data => data.region === "Oceania")
-      setData([...arr])
+      setCountries([...arr])
     }
     const back =()=>{
-      setData([...data1])
+      setCountries([...data1])
       // console.log(data1);
 
     }
