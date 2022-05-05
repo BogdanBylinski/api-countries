@@ -1,12 +1,13 @@
-import ReactPaginate from "react-paginate"
 
-export default function Countries({data, userPerPage,pageVisited}){
- 
+export default function Countries({data ,loading}){
+    if (loading) {
+        return <h2>Loading...</h2>;
+      }
     // data.slice(pageVisited, pageVisited + userPerPage)
     return(
         <>
         {
-            data.slice(pageVisited, pageVisited + userPerPage).map((e,i)=>
+            data.map((e,i)=>
             <div className="country" key={i}>
                 <h2>
                     {e.name} 

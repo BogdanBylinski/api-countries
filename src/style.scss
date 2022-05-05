@@ -11,20 +11,50 @@
     width: 90%;
     display: flex;
     justify-content: space-between;
-    button{
-        height: 40px;
-        width: 100px;
-        border-radius: 5px;
-        background-color: rgb(162, 240, 149);
-        cursor: pointer;
+   div{
+    display: flex;
+    align-items: center;
+    gap:5px;
+       button{
+           height: 40px;
+           width: 100px;
+           border-radius: 5px;
+           background-color: rgb(162, 240, 149);
+           cursor: pointer;
+           border: 1px solid black;
+        }
+        :hover{
+            background-color: #d6fed0;
+        }
+    }
+}
+.pagination-container{
+    display: flex;
+    align-self: center;
+    width: 500px;
+    justify-content: space-evenly;
+    gap: 30px;
+    .pgn-btn{
+        line-height:30px;
+        text-align: center;
+        width:30px;
+        height:30px;
         border: 1px solid black;
-    
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: rgb(162, 240, 149);
+        
     }
     :hover{
-        background-color: #d6fed0;
+    background-color: #d6fed0;
 
     }
-
+    .active{
+        color: rgb(162, 240, 149);
+        background-color: black;
+        
+        
+    }
 }
 .top{
 
@@ -87,9 +117,9 @@ ul{
             line-height: 40px;
             text-align: center;
         }
-        :hover{
-            background-color: #d6fed0;
-        }
+        // :hover{
+        //     background-color: #d6fed0;
+        // }
        
 
         
