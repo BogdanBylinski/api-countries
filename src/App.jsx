@@ -125,8 +125,8 @@ function App() {
     <div className="btns">
         <div>
 
-        <button onClick={  sortas1}>A-Z / Z-A</button>
-        <button onClick={sml}>Smaller than LTU</button>
+        <button className='noselect' onClick={  sortas1}>A-Z / Z-A</button>
+        <button className='noselect' onClick={sml}>Smaller than LTU</button>
         </div>
         
       {/* {displayUsers} */}
@@ -144,8 +144,8 @@ function App() {
       </ReactPaginate> */}
       <div>
 
-      <button onClick={ocn}>Oceania</button>
-        <button onClick={back}>RESET</button>
+      <button className='noselect' onClick={ocn}>Oceania</button>
+        <button  className='noselect' onClick={back}>RESET</button>
       </div>
           </div>
           <Pagination 

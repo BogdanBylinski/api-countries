@@ -92,13 +92,13 @@ function Pagination({postsPerPage, numberOfPages, totalPosts, setCurrentPage,cur
   return (
     <div className="pagination-container">
       <p 
-        className={ `pgn-btn ${currentButton === 1 ? 'disabled' : ''}`}
+        className={ `pgn-btn noselect ${currentButton === 1 ? 'disabled' : ''}`}
         onClick={() => setCurrentButton(prev => prev <= 1 ? prev : prev - 1)}> &lt;&lt;</p>
 
       {arrOfCurrButtons.map(((item, index) => 
          <p
           key={index}
-          className={` pgn-btn ${currentButton === item ? 'active' : ''}`}
+          className={` pgn-btn noselect ${currentButton === item ? 'active' : ''}`}
           onClick={() => setCurrentButton(item)}
         >
           {item}
@@ -106,7 +106,7 @@ function Pagination({postsPerPage, numberOfPages, totalPosts, setCurrentPage,cur
       ))}
 
       <p
-       className={`pgn-btn next ${currentButton === numberOfPages.length ? 'disabled' : ''}`} onClick={() => setCurrentButton(prev => prev >= numberOfPages.length ? prev : prev + 1)}
+       className={`pgn-btn next noselect ${currentButton === numberOfPages.length ? 'disabled' : ''}`} onClick={() => setCurrentButton(prev => prev >= numberOfPages.length ? prev : prev + 1)}
       >
         &gt;&gt;
       </p>
